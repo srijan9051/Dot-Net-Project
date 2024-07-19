@@ -1,0 +1,104 @@
+﻿@model IceCreamParlour.Models.Items_InCart
+
+@{
+
+    ViewBag.Title = "Checkout";
+
+}
+
+<div class="container py-5">
+
+    <div class="card">
+
+        <div class="card-header text-center">
+
+            <h2>Checkout</h2>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <h4>Product Details</h4>
+
+                    <table class="table table-striped">
+
+                        <tr>
+
+                            <th>Name</th>
+
+                            <td>@ViewBag.item</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Category</th>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Price</th>
+
+                            @*<td>@Model.Product.Price</td>*@
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Quantity</th>
+
+                            @*<td>@Model.Quantity</td>*@
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <h4>Order Summary</h4>
+
+                    <table class="table table-striped">
+
+                        <tr>
+
+                            <th>Total Amount</th>
+
+                            @*<td>@Model.TotalAmount</td>*@
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <div class="row mt-4">
+
+                <div class="col-md-12">
+
+                    <form action="/PaymentProcessURL">
+
+                        <!-- Replace with actual payment processing URL -->
+                        <!-- Add payment fields here -->
+
+                        <input type="submit" value="Proceed to Payment" class="btn btn-primary btn-lg btn-block" />
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

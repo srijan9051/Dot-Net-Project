@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IceCreamParlourModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemName" Type="varchar" MaxLength="50" />
+    <Property Name="ItemFlavour" Type="varchar" MaxLength="50" />
+    <Property Name="Price" Type="varchar" MaxLength="50" />
+    <Property Name="Image" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="loginNew">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ordert">
+    <Key>
+      <PropertyRef Name="ord_id" />
+    </Key>
+    <Property Name="ord_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="item_id" Type="int" />
+    <Property Name="cust_id" Type="int" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="price" Type="int" />
+    <Property Name="totprice" Type="int" />
+  </EntityType>
+  <Association Name="FK__ordert__cust_id__3C69FB99">
+    <End Role="loginNew" Type="Self.loginNew" Multiplicity="0..1" />
+    <End Role="ordert" Type="Self.ordert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loginNew">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ordert">
+        <PropertyRef Name="cust_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ordert__item_id__3B75D760">
+    <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+    <End Role="ordert" Type="Self.ordert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ordert">
+        <PropertyRef Name="item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="IceCreamParlourModelStoreContainer">
+    <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="loginNew" EntityType="Self.loginNew" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ordert" EntityType="Self.ordert" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ordert__cust_id__3C69FB99" Association="Self.FK__ordert__cust_id__3C69FB99">
+      <End Role="loginNew" EntitySet="loginNew" />
+      <End Role="ordert" EntitySet="ordert" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ordert__item_id__3B75D760" Association="Self.FK__ordert__item_id__3B75D760">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="ordert" EntitySet="ordert" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

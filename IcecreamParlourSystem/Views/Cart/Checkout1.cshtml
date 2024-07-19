@@ -1,0 +1,64 @@
+﻿@model IEnumerable<IcecreamParlourSystem.Models.ordert>
+
+@{
+    ViewBag.Title = "Checkout1";
+}
+<style>
+    .table {
+        background-color: #0000007d;
+        color: white;
+    }
+
+    img {
+        border-radius: 7px;
+    }
+    h2 {
+        color: white;
+    }
+
+    .btn-pos {
+        position: absolute;
+        top: 90px;
+        left: 295px;
+    }
+
+    .btn-pos1 {
+        position: absolute;
+        top: 132px;
+        left: 258px;
+    }
+</style>
+<h2>Product List</h2>
+<p><a href="../Items/Index1" class="btn btn-success">Order Again</a></p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.item_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cust_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.totprice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.item_id)</td>
+            <td>@Html.DisplayFor(modelItem => item.cust_id)</td>
+            <td>@Html.DisplayFor(modelItem => item.quantity)</td>
+            <td>@Html.DisplayFor(modelItem => item.price)</td>
+            <td>@Html.DisplayFor(modelItem => item.totprice)</td>
+
+        </tr>
+    }
+</table>
+
+

@@ -1,0 +1,182 @@
+﻿@model IEnumerable<IcecreamParlourSystem.Models.Item>
+@{
+    ViewBag.Title = "Home Page";
+    int id = (int)(ViewBag.userId);
+    string name = ViewBag.num;
+}
+
+<style>
+    /*body {
+        background-color: #dfc1c6;
+    }*/
+    .design {
+        font-family: "Dancing Script", cursive;
+        font-size: 2.5rem;
+        color: #ccff00;
+    }
+
+    .lead {
+        font-family: "Permanent Marker", cursive;
+        font-size: 1.4rem;
+        color: white;
+    }
+
+    .title {
+        color: #91ff00;
+        font-family: cursive;
+    }
+
+    .img-fluid {
+        font-family: cursive;
+        display: inline;
+    }
+
+    .flip-card {
+        background-color: transparent;
+        width: 316px;
+        height: 299px;
+        perspective: 1000px;
+        margin: 2px 20px;
+        border-radius: 7px;
+        box-shadow: 3px 3px 4px 9px 9px black;
+    }
+
+    /* This container is needed to position the front and back side */
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+
+    /* Do an horizontal flip when you move the mouse over the flip box container */
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    /* Position the front and back side */
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+    }
+
+    /* Style the front side (fallback if image is missing) */
+    .flip-card-front {
+        background-color: pink;
+        color: black;
+    }
+
+    /* Style the back side */
+    .flip-card-back {
+        background-color: #5dd1a1bd;
+        color: black;
+        transform: rotateY(180deg);
+    }
+
+    img {
+        width: 294px;
+        height: 295px;
+        border-radius: 7px;
+    }
+
+    .dark {
+        background-color: #00000059;
+    }
+
+    .btn-pos {
+        position: absolute;
+        top: 219px;
+        left: 265px;
+    }
+
+    .btn-pos1 {
+        position: absolute;
+        top: 207px;
+        left: 119px;
+    }
+    .btn-pos2 {
+        position: absolute;
+        top: 25px;
+        left: 356px;
+        width: 101px;
+        height: 39px;
+        text-decoration: none;
+        color: #ffffffb0;
+    }
+    .btn-pos3 {
+        position: absolute;
+        top: 25px;
+        left: 447px;
+        width: 125px;
+        height: 39px;
+        text-decoration: none;
+        color: #ffffffb0;
+    }
+    .btn-pos4 {
+        position: absolute;
+        top: 25px;
+        left: 559px;
+        width: 135px;
+        height: 39px;
+        text-decoration: none;
+        color: #ffffffb0;
+    }
+    .btn-pos3:hover{
+        color:white;
+    }
+    .btn-pos4:hover {
+        color: white;
+    }
+    .btn-pos2:hover {
+        color:white;
+    }
+        .font-change {
+        font-family: "Dancing Script", cursive;
+    }
+</style>
+
+<main>
+    <section class="row dark" aria-labelledby="aspnetTitle">
+        <h1 id="title" class="title">Frosty Delight</h1>
+        <p class="lead">We Provide Delicious taste in all types of Icecream in <span class="design">Frosty Delight</span></p>
+        <p><a href="../Items/Index1" class="btn btn-success btn-pos1">Order Now</a></p>
+        @Html.ActionLink("Edit Profile", "Edit","Account", new { id = id }, new { @class = "btn-pos2" }) |
+        @Html.ActionLink("Delete Profile", "Delete","Account", new { name = name }, new { @class = "btn-pos3" }) |
+        @Html.ActionLink("Delete Profile", "Delete","Account", new { name = name }, new { @class = "btn-pos3" }) |
+        @Html.ActionLink("See Past Orders", "OrderPast","Cart", new { name = name }, new { @class = "btn-pos4" }) |
+
+    </section>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="@Url.Content(item.Image)" alt="@item.ItemName">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1 class="font-change">@item.ItemName</h1>
+                        <h3>Flavour: @item.ItemFlavour</h3>
+                        <h3>Price: @item.Price</h3>
+                        <h3>Available</h3>
+                        
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</main>
+
+<script>
+    window.addEventListener('pageshow', function (event) {
+        if (event.persisted) {
+            location.reload(true);
+        }
+    });
+</script>

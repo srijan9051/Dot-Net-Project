@@ -1,0 +1,101 @@
+﻿@model IEnumerable<IcecreamParlourSystem.Models.Item>
+    @{ 
+        Layout=null;
+    }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Selection</title>
+    <style>
+        /* CSS for styling */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    @foreach (var item in Model)
+    {
+        <table class="itemList">
+            <tr>
+                <th>Item Name</th>
+                <th>Item Flavour</th>
+                <th>Image</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Select</th>
+            </tr>
+            <tr>
+                <td>@item.ItemName</td>
+                <td>@item.ItemFlavour</td>
+                <td><img src="@Url.Content(item.Image)" width="50" height="50" class="img-fluid" /></td>
+                <td>
+                    <select>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="3">4</option>
+                        <option value="3">5</option>
+                    </select>
+                  </td>
+                <td>@item.Price</td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </table>
+    }
+
+    <button onclick="showSelectedItems()">View Selected Items</button>
+
+    <div id="selectedItemsList"></div>
+
+    <script>
+        function showSelectedItems() {
+            var tables = document.getElementsByClassName("itemList");
+            var selectedItems = [];
+
+            for (var i = 0; i < tables.length; i++) {
+                var table = tables[i];
+                var rows = table.getElementsByTagName("tr");
+
+                for (var j = 1; j < rows.length; j++) {
+                    var row = rows[j];
+                    var checkbox = row.querySelector('input[type="checkbox"]');
+                    if (checkbox && checkbox.checked) {
+                        var itemName = row.cells[0].innerText;
+                        var quantity = parseInt(row.cells[2].querySelector('select').value);
+                        var price = int.Parse(row.cells[3].innerText);
+                        var finalPrice = quantity * price;
+                        selectedItems.push({ itemName: itemName, quantity: quantity, finalPrice: finalPrice });
+                    }
+                }
+            }
+
+            var selectedItemsList = document.getElementById("selectedItemsList");
+            selectedItemsList.innerHTML = "";
+
+            selectedItems.forEach(function (item) {
+                var itemDiv = document.createElement("div");
+                itemDiv.innerHTML = "<strong>" + item.itemName + "</strong> - Quantity: " + item.quantity + " - Final Price: " + item.finalPrice;
+                selectedItemsList.appendChild(itemDiv);
+            });
+        }
+    </script>
+
+</body>
+</html>

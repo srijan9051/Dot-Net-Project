@@ -1,0 +1,90 @@
+﻿@using IceCreamParlour.Models
+@using Newtonsoft.Json;
+@{
+    ViewBag.Title = "Index";
+    var orderData = new Dictionary<int, int>();
+}
+<style>
+    .table {
+        background-color: #0000007d;
+        color: white;
+    }
+
+    td:hover {
+        color: white;
+    }
+
+    img {
+        border-radius: 7px;
+    }
+
+    h2 {
+        color: white;
+    }
+    .design{
+        position:absolute;
+        top:50px;
+        left:50px;
+    }
+    .designbtn{
+        position:absolute;
+        top:50px;
+        left:50px;
+    }
+    .table-bordered > :not(caption) > * > * {
+        border-width: 0 1px;
+        color:white;
+    }
+</style>
+<h2>My Cart</h2>
+@Html.ActionLink("Add more item", "Index1", "Items", new { area = "" }, new { @class = "btn btn-success" })
+<table class="table table-bordered">
+    <tr>
+        <th>Product Image</th>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Product Quantity</th>
+        <th>Total Amount</th>
+        <th>Operations</th>
+    </tr>
+
+    @foreach (var item in (List<IceCreamParlour.Models.Items_InCart>)Session["cart"])
+    {
+        orderData.Add(item.Product.Id, item.Quantity);
+        <tr>
+            <td>
+                <img src="@item.Product.Image" alt="@item.Product.ItemName" width="100" height="100" />
+            </td>
+            <td>
+                @item.Product.ItemName
+            </td>
+            <td>
+                @item.Product.Price
+            </td>
+            <td>
+                @item.Quantity
+            </td>
+            <td>
+                @(Int32.Parse(item.Product.Price) * item.Quantity)
+            </td>
+            <td>
+                <a href="@Url.Action("RemoveFromCart", "Cart", new {@ProductID = item.Product.Id })" class="btn btn-danger">-</a>
+                <a href="@Url.Action("AddToCart", "Cart", new {@ProductID = item.Product.Id })" class="btn btn-success">+</a>
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="5"><h2 class="text-center">Total Amount to be paid</h2></td>
+        <td>
+            @{
+                List<IceCreamParlour.Models.Items_InCart> cart = (List<IceCreamParlour.Models.Items_InCart>)Session["cart"];
+                var total = (from data in cart select Int32.Parse(data.Product.Price) * data.Quantity).Sum();
+
+
+            }
+           
+            <h2>@total  @Html.ActionLink("Checkout", "Checkout1", "Cart", new { OrderData = JsonConvert.SerializeObject(orderData) }, new { @class = "btn btn-success" })</h2>
+        </td>
+    </tr>
+    
+</table>

@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Frosty Delight</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Animate CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for background color */
+        body {
+            background-image: url('../../Dumps/bg_back1.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        section {
+            background-color: #00000085;
+            color: white;
+            height: 100%;
+        }
+
+        footer {
+            position: absolute;
+            top: 10%;
+            left: 0%;
+        }
+
+        .design {
+            position: absolute;
+            left: 45%;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-light py-3">
+        <div class="container">
+            <h1 class="text-center mb-0 animate__animated animate__fadeInDown">Welcome to Frosty Delight</h1>
+        </div>
+    </header>
+
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4 animate__animated animate__fadeIn">About Us</h2>
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <p class="lead text-center animate__animated animate__fadeIn">At Frosty Delight, we are passionate about creating delightful treats that bring joy to our customers. With a focus on quality ingredients and artisanal craftsmanship, each of our creations tells a story of dedication and love for ice-cream.</p>
+                    <p class="text-center animate__animated animate__fadeIn">Our journey began with a simple dream: to share our love for baking with the world. Today, we are proud to serve our community with a wide range of cakes, pastries, and other delicious treats that are perfect for any occasion.</p>
+                    <p class="text-center mb-0 animate__animated animate__fadeIn">Join us on our mission to spread happiness one bite at a time. Whether you're celebrating a special moment or simply craving a sweet indulgence, Ice Cream is here to make every moment memorable.</p>
+                </div>
+            </div>
+            @Html.ActionLink("Back To Home", "Index2", "Home", new { area = "" }, new { @class = "btn btn-success design" })
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Animate CSS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.js"></script>
+</body>
+</html>

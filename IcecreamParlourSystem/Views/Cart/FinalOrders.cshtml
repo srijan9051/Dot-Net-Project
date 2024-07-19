@@ -1,0 +1,159 @@
+﻿@model IEnumerable<IcecreamParlourSystem.Models.ordert>
+
+@{
+
+    ViewBag.Title = "Past Order";
+
+}
+
+<html>
+
+<head>
+
+    <style>
+
+        .table {
+            border-collapse: separate;
+            width: 100%;
+        }
+
+            .table th {
+                background-color: black;
+                border: 4px solid white;
+                color: white;
+                padding: 15px;
+                text-align: left center;
+            }
+
+            .table td {
+                background-color: rgba(0, 0, 0, 0.45);
+                border: 2px solid white;
+                color: white;
+                padding: 15px;
+            }
+
+            .table tr:nth-child(even) {
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+            h2{
+                color:white;
+                font-size:1.9rem;
+                font-family:cursive;
+            }
+    </style>
+
+</head>
+
+<body>
+
+    <br />
+
+    <h2 align="center">All Orders</h2>
+
+    <br />
+    @Html.ActionLink("Back To Home", "Index", "Home", new { area = "" }, new { @class = "btn btn-success" })
+    <table class="table">
+
+        <tr>
+
+            <th>
+
+                @*@Html.DisplayNameFor(model => model.userRegister.userName)*@
+
+                Customers
+
+            </th>
+
+            <th>
+
+                Item Name
+
+                @*@Html.DisplayNameFor(model => model.product.Name)*@
+
+            </th>
+
+
+            <th>
+
+                @Html.DisplayNameFor(model => model.quantity)
+
+            </th>
+
+            <th>
+
+                Per Price
+
+                @*@Html.DisplayNameFor(model => model.PRICE)*@
+
+            </th>
+
+            <th>
+
+                Total Price
+
+            </th>
+
+            @*OrderDate
+
+                <th>
+
+                    @Html.DisplayNameFor(model => model.OrderDate)
+
+                </th>*@
+
+
+        </tr>
+
+        @foreach (var item in Model)
+
+        {
+
+            <tr>
+
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.loginNew.UserName)
+
+                </td>
+
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.Item.ItemName)
+
+                </td>
+
+
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.quantity)
+
+                </td>
+
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.price)
+
+                </td>
+
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.totprice)
+
+                </td>
+
+                @*<td>
+
+                        @Html.DisplayFor(modelItem => item.OrderDate)
+
+                    </td>*@
+
+
+            </tr>
+
+        }
+
+    </table>
+
+</body>
+
+</html>

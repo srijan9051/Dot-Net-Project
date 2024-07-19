@@ -1,0 +1,202 @@
+﻿@model IcecreamParlourSystem.Models.Item
+@{
+    Layout = null;
+}
+@{
+    ViewBag.Title = "Login";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Frosty Delight</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    @*<link rel="stylesheet" href="~/Dumps/style.css" />
+        <link rel="stylesheet" href="~/Dumps/style1.css" />*@
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('../../Dumps/bg_back1.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .form-control {
+            border: none;
+            display: block;
+            width: 100%;
+            padding: 2px 23px;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #e3e1ebfa;
+            background-color: #00000052;
+            border-bottom: 1px solid black;
+            margin-left: 10px;
+            border-radius: 0.375rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .design1 {
+            font-family: "Dancing Script", cursive;
+        }
+
+        .design2 {
+            position: absolute;
+            top: 121px;
+            left: 509px;
+            border: 2px solid black;
+            width: 27%;
+            height: 73%;
+            text-align:center;
+            justify-content:center;
+            padding: 6px 10px;
+            background-color: #0000008a;
+            border-radius: 7px;
+            color: white;
+        }
+
+        .form-control {
+            border: none;
+            display: block;
+            width: 100%;
+            padding: 2px 23px;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            background-color: #00000052;
+            border-bottom: 1px solid black;
+            margin-left: 10px;
+            border-radius: 0.375rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+            .form-control::placeholder {
+                color: white;
+                font-size: 1rem;
+                font-family: cursive;
+            }
+
+        h4 {
+            text-align: center;
+            margin: auto;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 50px;
+        }
+
+        .btn1 {
+            padding: 2px 23px;
+            margin: 17px 25px;
+            font-size: 1.1rem;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            width: 92%;
+            border: 2px solid black;
+            background-color: #00000078;
+            border-radius: 15px;
+            cursor: pointer;
+            color: white;
+        }
+
+            .btn1:hover {
+                box-shadow: 14px 12px 6px 4px #000000bf;
+            }
+
+        a {
+            text-decoration: none;
+            color: white;
+            margin-left: 5px;
+            font-size: 1.1rem;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+            a:hover {
+                color: white;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+        .head2 {
+            color: white;
+            margin-left: 5px;
+            font-family: Gabriola;
+            font-size: 1.2rem;
+        }
+
+        .list {
+            position: absolute;
+            top: 50px;
+            left: 10px;
+        }
+        dd{
+            margin-left:24px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size:1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container">
+            @Html.ActionLink("Frosty Delight", "Index", "Home", new { area = "" }, new { @class = "navbar-brand design1" })
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li>@Html.ActionLink("See List", "Index", "Items", new { area = "" }, new { @class = "nav-link" })</li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="design2">
+        <h2>Details</h2>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ItemName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ItemName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ItemFlavour)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ItemFlavour)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+
+            <dd>
+                <img src="@Url.Content(Model.Image)" width="50" height="50" class="img-fluid" />
+            </dd>
+
+        </dl>
+        @Html.ActionLink("Edit Item", "Edit", new { id = Model.Id }, new {@class="btn1"})
+    </div>
+    </body>
+</html>

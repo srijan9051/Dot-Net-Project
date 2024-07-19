@@ -1,0 +1,72 @@
+﻿@model IEnumerable<IcecreamParlourSystem.Models.Item>
+
+@{
+    ViewBag.Title = "Index1";
+}
+<style>
+    .table {
+        background-color: #0000007d;
+        color: white;
+    }
+
+    img {
+        border-radius: 7px;
+    }
+
+    h2 {
+        color: black;
+        font-size:2.2rem;
+        text-align:center;
+        font-family:cursive;
+    }
+    input::placeholder{
+        color:black;
+    }
+</style>
+<h2>Products</h2>
+
+@using (Html.BeginForm("Index1", "Items", FormMethod.Get))
+{
+    @Html.TextBox("searching")
+    <input type="submit" value="Search"/>
+    @Html.ActionLink("See All", "Index1", "Items", new { area = "" }, new { @class = "btn btn-success" })
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemFlavour)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemFlavour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <img src="@Url.Content(item.Image)" width="50" height="50" class="img-rounded" />
+            </td>
+            <td>
+                <a href="@Url.Action("AddToCart","Cart", new { @ProductID = item.Id})" class="btn btn-primary">Add to Cart</a>
+            </td>
+        </tr>
+    }
+
+</table>

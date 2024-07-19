@@ -1,0 +1,80 @@
+﻿@model IEnumerable<IcecreamParlourSystem.Models.loginNew>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .table {
+        background-color: #0000007d;
+        color: white;
+        border-collapse:separate;
+        width100%;
+    }
+    table th{
+        border:2px solid white;
+        border-radius:5px;
+    }
+    table td{
+        border:1px solid white;
+        border-radius:5px;
+    }
+
+    h2 {
+        color: white;
+        font-size:1.8rem;
+        font-family:cursive;
+        text-align:center;
+    }
+
+    .btn-pos {
+        position: absolute;
+        top: 90px;
+        left: 295px;
+    }
+
+    .btn-pos1 {
+        position: absolute;
+        top: 132px;
+        left: 258px;
+    }
+     a{
+        text-decoration:none;
+        color:white;
+        font-family:cursive;
+    }
+</style>
+<h2>User List</h2>
+<p><a href="../Home/Index" class="btn btn-success">Back To Home</a></p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th class="dsg">
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Password)*@
+                *********
+            </td>
+            
+        </tr>
+       
+    }
+
+</table>

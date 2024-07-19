@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<style>
+    h2 {
+        color: white;
+        font-family: cursive;
+        font-size: 1.5rem;
+    }
+
+    .container1 {
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1.1rem;
+        background-color: #000000ba;
+        border-radius: 7px;
+        padding: 10px;
+    }
+</style>
+<main aria-labelledby="title">
+    <div class="container1">
+        <h2>Why to choose Frosty Delight?</h2>
+        <hr />
+        <p>
+            Unique Flavors and Quality Ingredients: If your ice cream parlor offers a delightful array of innovative flavors or uses high-quality ingredients, it can quickly gain a reputation. Customers appreciate creativity and authenticity in their frozen treats.
+        </p>
+        <p>
+            Ambiance and Experience: A cozy, inviting ambiance can make your parlor memorable. Whether it’s a charming retro decor, friendly staff, or a picturesque location, a positive experience keeps customers coming back.
+        </p>
+        <p>
+            Social Media Buzz: In today’s digital age, social media can make or break a business. If your ice cream parlor has a strong online presence, shares mouthwatering photos, and engages with customers, it can gain a cult following.
+        </p>
+        @Html.ActionLink("Back to Home", "Begin", "Home", new { area = "" }, new { @class = "btn btn-success" })
+    </div>
+</main>

@@ -1,0 +1,150 @@
+﻿@{
+    Layout = null;
+}
+@{
+    ViewBag.Title = "Begin";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Frosty Delight</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    @*<link rel="stylesheet" href="~/Dumps/style.css" />
+        <link rel="stylesheet" href="~/Dumps/style1.css" />*@
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <style>   
+    .design1 {
+    position: absolute;
+    top: 12px;
+    left: 48px;
+    font-family: "Dancing Script", cursive;
+    color: white;
+    font-size: 1.3rem;
+        }
+        .design2 {
+           margin-left:90px;
+        }
+
+        video {
+            width: 95vw;
+            height: 95vh;
+        }
+
+        .stateb {
+            position: absolute;
+            top: 120px;
+            left: 280px;
+            color: white;
+        }
+        .stateb1 {
+            position: absolute;
+            top: 170px;
+            left: 110px;
+            color: white;
+        }
+        .stateb2 {
+            position: absolute;
+            top: 199px;
+            left: 253px;
+            color: white;
+        }
+        .containerb {
+            position: absolute;
+            top: 120px;
+            left: 207px;
+            width: 65%;
+            height: 72%;
+            background-color: #0000007d;
+        }
+
+        .leadd {
+            font-family: "Dancing Script", cursive;
+            font-size: 2.4rem;
+            
+        }
+        .leadd1 {
+            font-family: cursive;
+            font-size: 1.5rem;
+            
+        }
+        .know {
+            position: absolute;
+            top: 239px;
+            left: 368px;
+            color: white;
+            text-decoration: none;
+            padding: 13px 18px;
+            border: 1px solid black;
+            border-radius: 7px;
+            background-color: #dd0505a3;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+            .know:hover {
+                cursor: pointer;
+                box-shadow: 9px 5px 7px 5px black;
+                color:white;
+            }
+        a {
+            text-decoration: none;
+            color: #ffffffb3;
+        }
+            a:hover{
+                color:white;
+            }
+        .right {
+            position: absolute;
+            top: 18px;
+            left: 84%;
+            text-decoration:none;
+            color: white;
+        }
+        .right a{
+            margin:0px 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container">
+            <p class="design1">Frosty Delight</p>
+
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li>@Html.ActionLink("Admin Login", "Login", "Account", new { area = "" }, new { @class = "nav-link design2" })</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="right">
+        @Html.ActionLink("Login", "UserLogin", "Account")
+        @Html.ActionLink("Signup", "Signup", "Account")
+
+    </div>
+    <video autoplay loop muted plays-block id="background-clip">
+        <source src="~/Dumps/bg_vid.mp4" type="video/mp4">
+    </video>
+    <div class="containerb">
+        <h2 class="stateb leadd">Welcome to Frosty Delight</h2>
+        <h3 class="stateb1 leadd1">India's number-1 delicious icecream with no added preservatives</h3>
+        <h3 class="stateb2 leadd1">Now with more fun and burst in taste</h3>
+        <a href="/Home/AboutMain" class="know">Know More About Us</a>
+    </div>
+    <script>
+        history.pushState(null, null, location.href);
+        window.onpopstate = function (event) {
+            history.go(1);
+        };
+    </script>
+
+</body>
+</html>
+

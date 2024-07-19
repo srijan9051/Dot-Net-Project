@@ -1,0 +1,87 @@
+﻿@model IEnumerable<IcecreamParlourSystem.Models.Item>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .table {
+        background-color: #0000007d;
+        color:white;
+        border-collapse:separate;
+        width:100%;
+    }
+    table th{
+        border:2px solid white;
+        border-radius:5px;
+       
+    }
+    table td {
+        border: 1px solid white;
+        border-radius: 5px;
+    }
+    img{
+        border-radius:7px;
+    }
+    h2 {
+        color: white;
+        font-size: 2.2rem;
+        font-family: cursive;
+        text-align: center;
+    }
+    .btn-pos {
+        position: absolute;
+        top: 90px;
+        left: 295px;
+    }
+    .btn-pos1 {
+        position: absolute;
+        top: 138px;
+        left: 258px;
+    }
+</style>
+<h2>Product List</h2>
+<p><a href="../Home/Index" class="btn btn-success">Back To Home</a></p>
+<p><a href="../Items/Create" class="btn btn-success btn-pos1">Create New</a></p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemFlavour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemFlavour)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    <img src="@Url.Content(item.Image)" width="50" height="50" class="img-fluid" />
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>

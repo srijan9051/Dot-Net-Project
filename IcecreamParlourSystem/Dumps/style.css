@@ -1,0 +1,258 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url("bg.jpeg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+#background-clip {
+    display: none;
+}
+
+#container {
+    display: none;
+    border: 5px solid rgba(128, 0, 128, 0.152);
+    box-shadow: -9px -9px 9px rgb(16, 14, 14);
+    background-color: rgba(255, 255, 255, 0.468);
+    padding: 12px;
+    border-radius: 12px;
+    color: black;
+    position: absolute;
+    top: 22%;
+    left: 40%;
+    width: 20rem;
+}
+
+    #container h1 {
+        display: inline-block;
+        font-size: 40px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        border-bottom: 5px solid purple;
+        margin-bottom: 20px;
+        padding: 13px 0;
+    }
+
+.box {
+    width: 100%;
+    margin: 22px 0;
+    border-bottom: 2px solid purple;
+}
+
+    .box input {
+        background: none;
+        width: 75%;
+        padding: 5px 10px;
+        border: none;
+        outline: none;
+        color: black;
+        font-size: 20px;
+        transition: 0.5s;
+    }
+
+    .box label {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 20px;
+    }
+
+        .box label:focus ~ label,
+        .box label:valid ~ label {
+            top: -3px;
+        }
+
+    .box input::placeholder {
+        color: rgba(15, 15, 15, 0.586);
+        font-family: cursive;
+    }
+
+.btn {
+    cursor: pointer;
+    outline: none;
+    margin: 12px 0;
+    padding: 10px 21px;
+    border: 2px solid purple;
+    border-radius: 10px;
+    font-size: 18px;
+    background: none;
+    color: black;
+    font-weight: bold;
+}
+
+    .btn:hover {
+        background-color: white;
+        color: black;
+        border-radius: 12px;
+        font-family: 'Edu SA Beginner', cursive;
+    }
+
+.box i {
+    width: 25px;
+    text-align: center;
+}
+
+#container2 {
+    display: none;
+    border: 5px solid rgba(128, 0, 128, 0.152);
+    box-shadow: -9px -9px 9px rgb(16, 14, 14);
+    background-color: rgba(255, 255, 255, 0.468);
+    padding: 12px;
+    border-radius: 12px;
+    color: black;
+    position: absolute;
+    top: 22%;
+    left: 40%;
+    width: 20rem;
+}
+
+    #container2 h1 {
+        display: inline-block;
+        font-size: 40px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        border-bottom: 5px solid purple;
+        margin-bottom: 20px;
+        padding: 13px 0;
+    }
+
+#background-clip {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+@media (min-aspect-ratio:16/9) {
+    #background-clip {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect-ratio:16/9) {
+    #background-clip {
+        width: auto;
+        height: 100%;
+    }
+}
+
+.navbar {
+    background-color: rgba(0, 255, 255, 0.436);
+    height: 57px;
+}
+
+    .navbar h2 {
+        display: inline;
+        position: absolute;
+        top: 10px;
+        left: 92px;
+        font-family: 'Architects Daughter', cursive;
+    }
+
+    .navbar ul {
+        display: inline;
+        position: absolute;
+        top: 8px;
+        left: 280px;
+        align-items: center;
+        margin-left: 369px;
+    }
+
+        .navbar ul li {
+            list-style: none;
+            display: inline;
+            margin: 5px 24px;
+            padding: 10px 0px;
+        }
+
+            .navbar ul li a {
+                text-decoration: none;
+                color: black;
+                font-size: 25px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                transform: scaleX(0);
+                transform-origin: right;
+                transition: all .5s;
+            }
+
+                .navbar ul li a:hover {
+                    transform-origin: left;
+                    transform: scaleX(1);
+                    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                    border-bottom: 4px solid purple;
+                    background-color: rgba(255, 255, 255, 0.208);
+                }
+
+.logo {
+    width: 60px;
+    height: 52px;
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    border: 2px solid black;
+    border-radius: 10px;
+    filter: invert(100%);
+}
+
+.btn1 {
+    position: absolute;
+    top: 8px;
+    left: 76rem;
+    cursor: pointer;
+    outline: none;
+    font-size: 25px;
+    background: none;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.208);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+    .btn1:hover {
+        border-bottom: 4px solid purple;
+    }
+
+#write h1 {
+    position: absolute;
+    top: 9rem;
+    left: 30rem;
+    border-bottom: 4px solid purple;
+}
+
+#write p {
+    position: absolute;
+    top: 13rem;
+    left: 0rem;
+    background-color: rgba(255, 255, 255, 0.368);
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#write2 h1 {
+    position: absolute;
+    top: 29rem;
+    left: 36rem;
+    border-bottom: 4px solid purple;
+    color: white;
+}
+
+#write2 p {
+    position: absolute;
+    top: 33rem;
+    left: 28rem;
+    background-color: rgba(255, 255, 255, 0.368);
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+footer {
+    position: absolute;
+    top: 44rem;
+    background-color: black;
+    color: white;
+    padding: 9px 20px;
+    width: 97%;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
